@@ -1,0 +1,27 @@
+#cloud-config
+
+package_update: true
+package_upgrade: false
+
+packages:
+  - curl
+  - vim
+  - jq
+  - bash-completion
+  - openssh-client
+
+runcmd:
+  - install -m 0755 -d /etc/apt/keyrings
+
+  - curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.35/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+  - echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.35/deb/ /' > /etc/apt/sources.list.d/kubernetes.list
+
+  - apt-get update
+  - apt-get install -y kubectl
+
+  - apt-mark hold kubectl
+
+  - echo 'source <(kubectl completion bash)' >> /home/ubuntu/.bashrc
+  - echo 'alias k=kubectl' >> /home/ubuntu/.bashrc
+  - echo 'complete -o default -F __start_kubectl k' >> /home/ubuntu/.bashrc
