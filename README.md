@@ -12,6 +12,10 @@ Make sure you install `multipass`, otherwise the powershell script won't work.
 I wanted to play around with kubernetes and maybe attempt the cka exam. 
 Unfortunately I have a single machine that is network capable (my desktop) and things like minikube and kind aren't immersive enough. 
 
+## Prerequisites
+
+`Hyper-V` to run VMs
+`multipass` to interact with hyper V easily
 
 ## Instructions
 
