@@ -1,0 +1,6 @@
+apiVersion: v2
+name: cka-web
+description: Small local chart for CKA Helm lifecycle practice
+type: application
+version: 0.1.0
+appVersion: "1.27"

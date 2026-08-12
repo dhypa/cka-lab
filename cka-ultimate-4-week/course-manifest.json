@@ -1,0 +1,18 @@
+{
+  "course": "CKA Ultimate 4-Week Course",
+  "build_date": "2026-08-12",
+  "target_kubernetes_minor": "1.35",
+  "labs": 55,
+  "mock_exams": 2,
+  "days": 28,
+  "capstone_projects": 3,
+  "official_domain_weights": {
+    "Troubleshooting": 30,
+    "Cluster Architecture, Installation & Configuration": 25,
+    "Services & Networking": 20,
+    "Workloads & Scheduling": 15,
+    "Storage": 10
+  },
+  "internal_mock_readiness_target_percent": 75,
+  "source_policy": "Official Linux Foundation + upstream Kubernetes/Helm/Gateway API as source of truth; original practice tasks only."
+}
