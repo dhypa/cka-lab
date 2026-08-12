@@ -58,3 +58,11 @@ multipass restore worker02.clean-cluster
 To start, I would make a few checkpoints:
 - base-linux (Ubuntu + containerd + kubeadm installed, no cluster)
 - kubeadm-initialized (kubeadm init done, workers joined)
+
+## Troubleshooting
+
+If `multipass` takes a long time to respond, and attempting to start a `ssh` session or interactive shell using multipass fails try this:
+```
+net stop multipass
+net start multipass
+``` 
