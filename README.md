@@ -5,7 +5,6 @@ This repository contains utilities to create VMs on your windows machine, making
 `k8s-node.yaml` defines a kubernetes node. 
 
 `create-lab.ps1` creates the VMs that you will use in your cluster as well as the interaction terminal VM.
-`create-lab.sh` is UNTESTED. Double check anything you run first!
 
 Make sure you install `multipass`, otherwise the powershell script won't work. 
 
@@ -19,7 +18,7 @@ Unfortunately I have a single machine that is network capable (my desktop) and t
 
 ## Instructions
 
-Run `create-lab.ps1`.
+Run `create-lab.ps1` on an elevated shell. 
 
 Make sure your VMs exist using `multipass list`.
 Example output:
