@@ -33,36 +33,3 @@ worker02        Running    172.25.160.12    Ubuntu 24.04 LTS
 After that, set up your kubernetes cluster. 
 
 I used `kubeadm` and ran through their [docs](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/). Docs are a bit confusing. 
-
-## Recommendations
-
-Take snapshots of important checkpoints you want to restore to. This way you can brick your setup as much as you want and just revert it.
-
-```bash
-multipass stop controlplane worker01 worker02 cka-shell
-multipass snapshot controlplane --name clean-cluster
-multipass snapshot worker01 --name clean-cluster
-multipass snapshot worker02 --name clean-cluster
-multipass snapshot cka-shell --name clean-cluster
-multipass start controlplane worker01 worker02
-```
-
-Restore with
-```
-multipass stop controlplane worker01 worker02
-multipass restore controlplane.clean-cluster
-multipass restore worker01.clean-cluster
-multipass restore worker02.clean-cluster
-```
-
-To start, I would make a few checkpoints:
-- base-linux (Ubuntu + containerd + kubeadm installed, no cluster)
-- kubeadm-initialized (kubeadm init done, workers joined)
-
-## Troubleshooting
-
-If `multipass` takes a long time to respond, and attempting to start a `ssh` session or interactive shell using multipass fails try this:
-```
-net stop multipass
-net start multipass
-``` 
